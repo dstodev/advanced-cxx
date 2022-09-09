@@ -1,4 +1,3 @@
-#include <iostream>
 #include <memory>
 
 #include <QApplication>
@@ -8,34 +7,6 @@
 #include "home-window.hxx"
 
 using namespace project;
-
-class ConfirmExit : public QMessageBox
-{
-	Q_OBJECT
-public:
-	explicit ConfirmExit(QWidget* parent = nullptr)
-	    : QMessageBox(parent)
-	{
-		setText("Are you sure you want to exit?");
-		setInformativeText("Are you reeaally sure?");
-		QMessageBox::setWindowTitle("Sureness Verifier");
-		setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-		connect(this, &QMessageBox::buttonClicked, this, &ConfirmExit::confirm_exit);
-	}
-	~ConfirmExit() override = default;
-
-signals:
-	void yesClicked();
-
-private slots:
-	void confirm_exit(QAbstractButton* selection)
-	{
-		auto button = standardButton(selection);
-		if (button == QMessageBox::Yes) {
-			emit yesClicked();
-		}
-	}
-};
 
 HomeWindow::HomeWindow(QWidget* parent)
     : QWidget(parent)
@@ -48,14 +19,17 @@ HomeWindow::HomeWindow(QWidget* parent)
 	setLayout(_layout);
 
 	auto* quit = new QPushButton("&Quit");  // ampersand: https://doc.qt.io/qt-6/qshortcut.html#mnemonic
-	_layout->addWidget(quit);
+	_layout->addWidget(quit, 1, 0);
 
-	auto* modal = new ConfirmExit(this);
-	connect(quit, &QPushButton::clicked, modal, &QMessageBox::exec);
-	connect(modal, &ConfirmExit::yesClicked, QApplication::instance(), &QApplication::quit);
+	auto* confirm = new QMessageBox(this);
+	confirm->setText("Are you sure you want to quit?");
+	confirm->setInformativeText("Are you reeaally sure?");
+	confirm->setStandardButtons(QMessageBox::Yes | QMessageBox::No);  // Clicking Yes will emit accepted()
+	confirm->setWindowTitle("Sureness Verifier");
+
+	connect(quit, &QPushButton::clicked, confirm, &QMessageBox::exec);
+	connect(confirm, &QMessageBox::accepted, QApplication::instance(), &QApplication::quit);
 
 	auto* hello = new QPushButton("&Hello");
-	_layout->addWidget(hello);
+	_layout->addWidget(hello, 0, 0);
 }
-
-#include "home-window.moc"
