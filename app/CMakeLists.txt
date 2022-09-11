@@ -1,14 +1,15 @@
 set(target_name main)
 
 find_package(Qt6 REQUIRED)
-find_package(glib REQUIRED)
 
- set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOMOC ON)
 
 add_executable(${target_name}
 	main.cxx
 	home-window.cxx
 	home-window.hxx
+	utility.cxx
+	utility.hxx
 )
 target_link_libraries(${target_name}
 	PRIVATE

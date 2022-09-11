@@ -1,8 +1,8 @@
 [requires]
-gtest/1.11.0@
-benchmark/1.6.0@
-eigen/3.4.0@
-qt/6.3.1@
+gtest/1.11.0@     # https://conan.io/center/gtest
+benchmark/1.6.0@  # https://conan.io/center/benchmark
+eigen/3.4.0@      # https://conan.io/center/eigen
+qt/6.3.1@         # https://conan.io/center/qt
 
 [generators]
 cmake_find_package

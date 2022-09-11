@@ -4,11 +4,9 @@
 #include <memory>
 
 #include <QGridLayout>
-#include <QPushButton>
+#include <QWidget>
 
 namespace project {
-
-// https://wiki.qt.io/Qt_for_Beginners
 
 class HomeWindow : public QWidget
 {
@@ -16,6 +14,9 @@ class HomeWindow : public QWidget
 public:
 	explicit HomeWindow(QWidget* parent = nullptr);
 	~HomeWindow() override = default;
+
+signals:
+	void quit_confirmed();
 
 private:
 	QGridLayout* _layout;
