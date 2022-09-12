@@ -4,11 +4,11 @@
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QHeaderView>
-#include <QMessageBox>
 #include <QPushButton>
 #include <QTableWidget>
 
 #include "home-window.hxx"
+#include "quit-button/quit-button.hxx"
 
 using namespace project;
 
@@ -30,14 +30,7 @@ HomeWindow::HomeWindow(QWidget* parent)
 
 	// Ampersand before letter: https://doc.qt.io/qt-6/qshortcut.html#mnemonic
 	auto* read = new QPushButton("Rea&d");
-	auto* quit = new QPushButton("&Quit");
-
-	auto* confirm = new QMessageBox(this);
-	confirm->setText("Are you sure you want to quit?");
-	confirm->setInformativeText("Are you reeaally sure?");
-	confirm->setMinimumSize(200, 200);  // suppresses a warning on Windows
-	confirm->setStandardButtons(QMessageBox::Yes | QMessageBox::No);  // Clicking Yes will emit the accepted() signal
-	confirm->setWindowTitle("Sureness Verifier");
+	auto* quit = new QuitButton;
 
 	auto* controls = new QGroupBox;
 	controls->setTitle("Controls");
@@ -51,6 +44,5 @@ HomeWindow::HomeWindow(QWidget* parent)
 	_layout->addWidget(table);
 	_layout->addWidget(controls);
 
-	connect(quit, &QPushButton::clicked, confirm, &QMessageBox::exec);
-	connect(confirm, &QMessageBox::accepted, this, &HomeWindow::quit_confirmed);
+	connect(quit, &QuitButton::quit_confirmed, this, &HomeWindow::quit_confirmed);
 }

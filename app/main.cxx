@@ -1,14 +1,15 @@
 #include <QApplication>
 #include <QStyleFactory>
 
-#include "home-window.hxx"
-
+#include "home-window/home-window.hxx"
 #include "utility.hxx"
 
 using namespace project;
 
 int main(int argc, char** argv)
 {
+	// memdbg_preamble();
+
 	QApplication app(argc, argv);
 	QApplication::setStyle(QStyleFactory::create("Fusion"));
 
