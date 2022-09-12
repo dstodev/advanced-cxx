@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include <QGridLayout>
+#include <QBoxLayout>
 #include <QWidget>
 
 namespace project {
@@ -19,7 +19,7 @@ signals:
 	void quit_confirmed();
 
 private:
-	QGridLayout* _layout;
+	QHBoxLayout* _layout;  // QWidget (base class) will own layout, but useful to access from member
 };
 
 }  // namespace project
