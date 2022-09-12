@@ -27,7 +27,6 @@ HomeWindow::HomeWindow(QWidget* parent)
 
 	auto* table_header = table->horizontalHeader();
 	table_header->setSectionResizeMode(QHeaderView::Stretch);
-	// table_header->setSectionResizeMode(0, QHeaderView::ResizeToContents);
 
 	// Ampersand before letter: https://doc.qt.io/qt-6/qshortcut.html#mnemonic
 	auto* read = new QPushButton("Rea&d");
