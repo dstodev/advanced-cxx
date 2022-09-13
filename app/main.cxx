@@ -1,6 +1,8 @@
 #include <QApplication>
 #include <QStyleFactory>
 
+#include "memdbg/preamble.h"  // introduces memory debug preprocessor code
+
 #include "home-window/home-window.hxx"
 #include "utility.hxx"
 
@@ -8,15 +10,13 @@ using namespace project;
 
 int main(int argc, char** argv)
 {
-	// memdbg_preamble();
+#include "memdbg/prelude.h"  // initializes memory debug facilities
 
 	QApplication app(argc, argv);
 	QApplication::setStyle(QStyleFactory::create("Fusion"));
 
 	HomeWindow home;
 	home.show();
-
-	QObject::connect(&home, SIGNAL(quit_confirmed()), &app, SLOT(exit()));
 
 	return QApplication::exec();
 }

@@ -10,6 +10,6 @@ if (NOT EXISTS "${conan_output_root}/conan.cmake")
 	file(DOWNLOAD "https://raw.githubusercontent.com/conan-io/cmake-conan/0.18.1/conan.cmake"
 		"${conan_output_root}/conan.cmake"
 		TLS_VERIFY ON)
-endif()
+endif ()
 
 include(${conan_output_root}/conan.cmake)

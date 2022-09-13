@@ -8,9 +8,10 @@ namespace project {
 class QuitButton : public QPushButton
 {
 	Q_OBJECT
+
 public:
 	explicit QuitButton(QWidget* parent = nullptr);
-	virtual ~QuitButton() = default;
+	virtual ~QuitButton() override = default;
 
 signals:
 	void quit_confirmed();

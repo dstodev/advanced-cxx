@@ -41,7 +41,7 @@ TEST(Placeholder, constructor_int_and_char)
 TEST(Placeholder, operators_assignment)
 {
 	placeholder_t o, i;
-	o = i;                 // copy
+	o = i;  // copy
 	o = placeholder_t {};  // move
 }
 

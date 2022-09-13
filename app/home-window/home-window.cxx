@@ -1,14 +1,15 @@
 #include <memory>
 
 #include <QApplication>
+#include <QGraphicsView>
 #include <QGridLayout>
 #include <QGroupBox>
-#include <QHeaderView>
+#include <QHBoxLayout>
 #include <QPushButton>
-#include <QTableWidget>
 
 #include "home-window.hxx"
 #include "quit-button/quit-button.hxx"
+#include "scene/scene.hxx"
 
 using namespace project;
 
@@ -19,17 +20,14 @@ HomeWindow::HomeWindow(QWidget* parent)
 	setLayout(_layout);
 
 	setFixedSize(720 * (2.0 / 3.0), 480 / 2);
-	setWindowTitle("Whoa!");
+	setWindowTitle("Something");
 
-	// For a more flexible table: https://doc.qt.io/qt-6/modelview.html
-	auto* table = new QTableWidget(4, 3);
-	table->setItem(0, 0, new QTableWidgetItem("Item"));
-
-	auto* table_header = table->horizontalHeader();
-	table_header->setSectionResizeMode(QHeaderView::Stretch);
+	// For a flexible data-interface architecture: https://doc.qt.io/qt-6/modelview.html
+	auto* scene = new Scene(this);
+	auto* scene_view = new QGraphicsView(scene);
 
 	// Ampersand before letter: https://doc.qt.io/qt-6/qshortcut.html#mnemonic
-	auto* read = new QPushButton("Rea&d");
+	auto* reset = new QPushButton("&Reset");
 	auto* quit = new QuitButton;
 
 	auto* controls = new QGroupBox;
@@ -37,12 +35,12 @@ HomeWindow::HomeWindow(QWidget* parent)
 
 	auto* controls_layout = new QGridLayout;
 	controls->setLayout(controls_layout);
-	controls_layout->addWidget(read);
+	controls_layout->addWidget(reset);
 	controls_layout->addWidget(quit);
 
 	// addWidget() also sets the widget's parent to this
-	_layout->addWidget(table);
+	_layout->addWidget(scene_view);
 	_layout->addWidget(controls);
 
-	connect(quit, &QuitButton::quit_confirmed, this, &HomeWindow::quit_confirmed);
+	connect(quit, &QuitButton::quit_confirmed, this, &QApplication::quit);
 }

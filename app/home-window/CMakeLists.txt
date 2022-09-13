@@ -5,3 +5,4 @@ target_sources(${target_name}
 )
 
 add_subdirectory(quit-button)
+add_subdirectory(scene)

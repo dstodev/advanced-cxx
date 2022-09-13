@@ -120,7 +120,7 @@ TEST(Grid, at_set_column_out_of_bounds)
 
 TEST(Grid, data_const)
 {
-	const Grid<char> o(1, 2, {3, 4});
+	Grid<char> const o(1, 2, {3, 4});
 	auto const& data = o.data();
 	ASSERT_EQ(3, data[0]);
 	ASSERT_EQ(4, data[1]);
@@ -128,7 +128,7 @@ TEST(Grid, data_const)
 
 TEST(Grid, at_const)
 {
-	const Grid<char> o(1, 1);
+	Grid<char> const o(1, 1);
 	auto const& element = o.at(0, 0);
 	ASSERT_EQ(0, element);
 }

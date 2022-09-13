@@ -7,9 +7,11 @@
       <option name="ADD_BRIEF_TAG" value="true" />
       <option name="ADD_GETTER_PREFIX" value="false" />
       <option name="ADD_SETTER_PREFIX" value="false" />
+      <option name="TYPE_QUALIFIERS_PLACEMENT" value="AFTER" />
       <option name="HEADER_GUARD_STYLE_PATTERN" value="${FILE_NAME}_${EXT}" />
     </Objective-C>
     <Objective-C-extensions>
+      <option name="TYPE_QUALIFIERS_PLACEMENT" value="AFTER" />
       <rules>
         <rule entity="NAMESPACE" visibility="ANY" specifier="ANY" prefix="" style="SNAKE_CASE" suffix="" />
         <rule entity="MACRO" visibility="ANY" specifier="ANY" prefix="" style="SCREAMING_SNAKE_CASE" suffix="" />
@@ -30,6 +32,7 @@
       </rules>
     </Objective-C-extensions>
     <Objective-C-extensions>
+      <option name="TYPE_QUALIFIERS_PLACEMENT" value="AFTER" />
       <rules>
         <rule entity="NAMESPACE" visibility="ANY" specifier="ANY" prefix="" style="SNAKE_CASE" suffix="" />
         <rule entity="MACRO" visibility="ANY" specifier="ANY" prefix="" style="SCREAMING_SNAKE_CASE" suffix="" />

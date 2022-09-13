@@ -1,5 +1,5 @@
 # 2022 Daniel Stotts
-# Version ~51
+# Version ~52
 
 ---
 BasedOnStyle: LLVM
@@ -55,6 +55,7 @@ IncludeBlocks: Preserve
 IndentPPDirectives: None
 MaxEmptyLinesToKeep: 2
 PointerAlignment: Left
+QualifierAlignment: Right
 ReflowComments: true
 SortIncludes: CaseSensitive
 SortUsingDeclarations: true

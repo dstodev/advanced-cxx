@@ -23,3 +23,4 @@ add_custom_command(TARGET ${target_name} POST_BUILD
 )
 
 add_subdirectory(home-window)
+add_subdirectory(memdbg)

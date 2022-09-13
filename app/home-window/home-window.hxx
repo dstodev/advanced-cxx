@@ -11,15 +11,13 @@ namespace project {
 class HomeWindow : public QWidget
 {
 	Q_OBJECT
+
 public:
 	explicit HomeWindow(QWidget* parent = nullptr);
-	~HomeWindow() override = default;
-
-signals:
-	void quit_confirmed();
+	virtual ~HomeWindow() override = default;
 
 private:
-	QLayout* _layout;  // QWidget (base class) will own layout, but useful to access from member
+	QLayout* _layout;  // Base class will own, but useful to access from member
 };
 
 }  // namespace project

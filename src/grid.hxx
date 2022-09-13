@@ -15,7 +15,7 @@ template <typename T>
 class Grid;
 
 template <typename T>
-std::ostream& operator<<(std::ostream& os, const Grid<T>& grid);
+std::ostream& operator<<(std::ostream& os, Grid<T> const& grid);
 
 /**
  * @brief A Grid is a two-dimensional arrangement of elements.
