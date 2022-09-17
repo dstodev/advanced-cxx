@@ -3,8 +3,8 @@
 
 namespace project {
 
-/* TODO: Apply type erasure pattern & add metadata to container like position,
-         velocity (vector), acceleration, etc. */
+/* TODO: Apply type erasure pattern for types-to-simulate & add metadata to
+ container like position, velocity (vector), acceleration, etc. */
 class Simulation
 {
 public:
