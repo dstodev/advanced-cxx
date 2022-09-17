@@ -18,8 +18,6 @@ HomeWindow::HomeWindow(QWidget* parent)
     , _layout(new QHBoxLayout)
 {
 	setLayout(_layout);
-
-	setFixedSize(720 * (2.0 / 3.0), 480 / 2);
 	setWindowTitle("Something");
 
 	// For a flexible data-interface architecture: https://doc.qt.io/qt-6/modelview.html
