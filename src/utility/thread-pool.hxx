@@ -103,8 +103,6 @@ ThreadPool<R>::ThreadPool(unsigned num_threads, bool deferred)
     , _task_completed {}
     , _latch {num_threads + static_cast<unsigned>(deferred)}
 {
-	std::latch latch(num_threads + static_cast<unsigned>(deferred));
-
 	for (unsigned i {0}; i < num_threads; ++i) {
 		_threads.emplace_back([this, i]() {
 			_latch.arrive_and_wait();
